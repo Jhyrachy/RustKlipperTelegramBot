@@ -5,7 +5,6 @@ pub struct SettingsStruct{
     pub telegram_token : String,
     pub telegram_chat_id : String,
     pub moonraker_port : String,
-    pub moonraker_arguments : String,
     pub host_system : String,
     pub camera_enabled : bool,
 }

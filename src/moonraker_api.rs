@@ -7,13 +7,14 @@ use crate::structures::SettingsStruct;
 
 pub async fn moonraker_api_request(settings: SettingsStruct) -> hyper::Result<MoonrakeStructure> {
     let client = Client::new();
+    let moonraker_arguments = "print_stats&display_status&extruder=target,temperature&heater_bed=target,temperature";
 
     //Creazione URL con i parametri, uso i riferimenti alla struttura.
     //usare .parse()? per ottenere dinamicamente il contenuto in tipo URI per api_request_url
     let api_request_url = format!("http://{}:{}/printer/objects/query?{}",
                                     settings.host_system,
                                     settings.moonraker_port,
-                                    settings.moonraker_arguments)
+                                    moonraker_arguments)
                                     .parse()
                                     .unwrap();
 
